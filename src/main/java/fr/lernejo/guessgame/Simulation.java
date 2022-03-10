@@ -27,15 +27,15 @@ public class Simulation {
         //System.out.println("Devinez le nombre ( done or not ): ");
         long guess = player.askNextGuess();
         if (guess == numberToGuess) {
-            System.out.println("won");
+            System.out.println("won \n");
             logger.log("won");
             return true;
         }
         if (guess > numberToGuess) {
-            logger.log("Le nombre est plus petit");
+            logger.log("Le nombre est plus petit \n");
             player.respond(false);
         }else{
-            logger.log("Le nombre est plus grand");
+            logger.log("Le nombre est plus grand \n");
             player.respond(true);
         }
 
