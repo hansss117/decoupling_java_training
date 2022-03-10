@@ -24,18 +24,18 @@ public class Simulation {
      * @return true if the player have guessed the right number
      */
     private boolean nextRound() {
-        System.out.println("Devinez le nombre ( done or not ): ");
+        //System.out.println("Devinez le nombre ( done or not ): ");
         long guess = player.askNextGuess();
         if (guess == numberToGuess) {
-            System.out.println("trouvé");
-            logger.log("trouvé");
+            System.out.println("won");
+            logger.log("won");
             return true;
         }
         if (guess > numberToGuess) {
-            logger.log("C'est plus petit");
+            logger.log("Le nombre est plus petit");
             player.respond(false);
         }else{
-            logger.log("C'est plus grand");
+            logger.log("Le nombre est plus grand");
             player.respond(true);
         }
 
@@ -52,7 +52,7 @@ public class Simulation {
             }
         }
         long eLapsedTime = System.currentTimeMillis() - start;
-        logger.log(won ? "Bravo, vous avez gagné !" : "C'est la fin, vous avez perdu");
+        logger.log(won ? "Bravo, vous avez done !" : "C'est la fin, vous avez perdu");
         logger.log("Temps total : "  + new SimpleDateFormat("mm:ss:SSS").format(new Date(eLapsedTime)));
     }
 }
