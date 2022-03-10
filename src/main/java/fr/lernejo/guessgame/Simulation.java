@@ -24,10 +24,13 @@ public class Simulation {
      * @return true if the player have guessed the right number
      */
     private boolean nextRound() {
-        System.out.println("Devinez le nombre : ");
+        System.out.println("Devinez le nombre ( done or not ): ");
         long guess = player.askNextGuess();
-        if (guess == numberToGuess)
+        if (guess == numberToGuess) {
+            System.out.println("trouvé");
+            logger.log("trouvé");
             return true;
+        }
         if (guess > numberToGuess) {
             logger.log("C'est plus petit");
             player.respond(false);
